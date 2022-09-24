@@ -1,9 +1,7 @@
-<%= form_with model: @user, local: true do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
+<%= form_with model: @user, url: new_user_url, local: true do |f| %>
 
   <%= f.label :email %>
-  <%= f.text_field :email %>
+  <%= f.email_field :email %>
 
   <%= f.label :password %>
   <%= f.text_field :password %>
