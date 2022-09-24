@@ -4,7 +4,10 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
+  get "log_in" => "sessions#new", :as => "log_in"
+  
   get "sign_up" => "users#new", :as => "sign_up"
   root :to => "users#new"
   resources :users
+  resources :sessions
 end
