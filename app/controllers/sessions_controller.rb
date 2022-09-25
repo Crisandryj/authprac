@@ -2,7 +2,7 @@ class SessionsController < ApplicationController
   def new
   end
 
-  def create
+def create
   user = User.authenticate(user_params)
   if user.present? && user.authenticate(params[:password])
     session[:user_id] = user.id
@@ -13,9 +13,16 @@ class SessionsController < ApplicationController
   end
 end
 
+def destroy
+  # deletes user session
+  session[:user_id] = nil
+  redirect_to root_path, notice: 'Logged Out'
+end
+
+private
+
 def user_params
   params.require(:user).permit(:email, :password)
 end
-
 
 end
